@@ -13,3 +13,10 @@ function submitTodo() {
   tasks.appendChild(listItem)   // Adds new item to the list
   document.getElementById('newItem').value = ""   // Clears the text input box
 }
+
+
+function checkForEnter(event) {
+  if (event.keyCode == 13) {
+    submitTodo()
+  }
+}
