@@ -4,11 +4,11 @@ Things to do to make the to do app good
 
 Tier One
 * Styling
-  * Pictures
-  * Pretty background
+  * Pictures DONE
+  * Pretty background DONE
   * Sections
   * Colours and fonts
-  * Alignment
+  * Alignment DONE
 
 Tier Two
 * Remove Items
