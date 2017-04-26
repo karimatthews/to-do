@@ -1,5 +1,8 @@
 function submitTodo() {
   var item = document.getElementById('newItem').value
+  if (item == "") {
+    return; 
+  }
   var tasksContainer = document.getElementById('tasks')
   var nodeItem = document.createTextNode(item)
 

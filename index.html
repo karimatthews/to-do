@@ -6,28 +6,22 @@
 
   <body>
 
-    <div class="background-image"> </div>
+    <div class=content>
+      <div class="background-image"> </div>
 
-  <section>
+      <div id=topline>
+        <h1> Cordelia's Tasks</h1>
+        <input class="todoinput" id="newItem" onkeyup="checkForEnter(event)">
+        <button class="todoinput" onclick="submitTodo()">Submit</button>
+      </div>
+      <div id="tasks"> </div>
+    </div>
 
-    <h1> Cordelia's Tasks
-      <input id="newItem" onkeyup="checkForEnter(event)">
-      <button onclick="submitTodo()">Submit</button>
-    </h1>
-
-
-
-
-    <div id="tasks"> </div>
-</section>
-
-<footer>
-  <p class="media">
-      Twitter: <a href="https://www.instagram.com/cordelia_the_greyhound" target="_blank" rel="noopener noreferrer">@cordelia_the_greyhound</a>
-    </p>
-    <p class="media"> e-mail: <a href="mailto:karimatthews3@gmail.com" target="_blank" rel="noopener noreferrer">karimatthews3@gmail.com</a></p>
-</footer>
-
+    <footer>
+      <p class="media">
+          Twitter: <a href="https://www.instagram.com/cordelia_the_greyhound" target="_blank" rel="noopener noreferrer">@cordelia_the_greyhound</a></p>
+      <p class="media"> e-mail: <a href="mailto:karimatthews3@gmail.com" target="_blank" rel="noopener noreferrer">karimatthews3@gmail.com</a></p>
+    </footer>
 
     <link href="styles.css" rel="stylesheet">
     <script src="app.js"> </script>

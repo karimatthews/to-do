@@ -1,35 +1,42 @@
 
+html {
+  background-color: black;
+  font-family: sans-serif;
 
+}
 
 
 body {
   /*margin-bottom: 0px;*/
   /*min-height: 100vh;*/
-  padding-left: 30px;
   display: flex;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 20px;
   color: white;
+  margin-left: 40px;
 }
 
 .background-image {
   background-color: black;
-  background-image: url("https://lh3.googleusercontent.com/ehr_akfI2ViPVqzEpI04mRpfiAPjWnOsR7Lddf3x0DTu5_vJyh7iP4i2prensiF48JA9YTW8le7i3YbNEQSbvnQgBvLVoFanuDWVe6hOsizbt7zlZ_tZDhk0nyLCHOdCCiSAqMtHkKB-UUK4QjsBVOrF5MjkKAL7eCZKpRNorzN-LEdD-ZTPWAwTjUCZpmj5-JufXyMwmiegip0-CVIP_VIziqsbs87xW5TJZtfccCrIk0xdvGsRgTAjDgfVlpbbdg-7RAPtSj2bEBoO4aKkd5q4EGSJ6FRiQPvouKedw9Np9KBwDvzDVhMqxZVORuFQdySMoLvZDktdndSEKcyrkqdge6UCX5BtGWmEtktwW85B4WiXelsdZtgdnzadHbsrRx_KdV7Pblmf2WHD-ZgkmbQ0WQQzDQspyD8Jg_wFgUh1sRTS-Nkd-r1VfJsFHUvKlHApJnrSM3216fmnpVmJaCqm5097-ya1vFgSfAaKQtDbjSAvpHkZ-vQUS1R13x7PFaEYM90sauDKWVUDAOZlv6P8y5tzH1JJnoIVLFH_druJNEHAiQ3IVdt70uoicOrb-1CJv7LYp0uo1tfwXoXtYXTgkNGR920wNix2CUoVSGkATzbgStaO=w1440-h740-no");
+  background-size: cover;
+  background-image: url("cordelia.jpg");
    background-repeat: no-repeat;
    position: fixed;
    left: 0;
    right: 0;
    min-height: 100vh;
-   min-width: 100vw;
+   /*min-width: 100vw;*/
    z-index: -1;
-   background-position: 0px% 0%;
-   filter: brightness(0.5);
+   background-position: 0% 0%;
+   filter: brightness(0.3);
 }
 
 #newItem {
-  margin-left: 100px;
-  font-size: 24px;
+  margin-left: 80px;
+  width: 300px;
 }
+
+
 
 input[type=checkbox] {
   /*padding: 10px;*/
@@ -37,7 +44,7 @@ input[type=checkbox] {
   padding: 0px;
 }
 
-section {
+.content {
     flex: 1;
     margin: 0px;
 }
@@ -49,7 +56,28 @@ section {
 p[class=media] {
  display: inline-block;
  margin-right: 30px;
- font-size: 24px;
+ font-size: 20px;
+}
+
+a {
+  color: white;
+}
+
+#topline {
+  display: flex;
+}
+
+.todoinput {
+  height:30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+ button[class=todoinput] {
+   border-radius: 10px;
+   background-color: white;
 }
 
 footer {
@@ -59,7 +87,9 @@ footer {
 }
 
 h1 {
-font-size: 56px;
+font-size: 48px;
+padding: 0px;
+
 }
 
 h2 {

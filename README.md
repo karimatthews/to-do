@@ -6,18 +6,22 @@ Tier One
 * Styling
   * Pictures DONE
   * Pretty background DONE
-  * Sections
-  * Colours and fonts
+  * Sections DONE
+  * Colours and fonts DONE
   * Alignment DONE
 
+
 Tier Two
-* Remove Items
+* Remove Items  
+* Load background image locally DONE
+
 
 
 Tier Three
 * Move checked Items
 * Persistence
 * Re-order items
+* optimise for mobile
 
 Tier ???
 * Auto suggestions
