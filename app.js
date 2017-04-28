@@ -2,6 +2,8 @@ document.getElementById("newItem").focus();
 
 var uniqueIdCounter = 0;
 
+var tasksContainer = document.getElementById('tasks')
+
 function createCheckbox() {
   var checkbox = document.createElement("input")
   checkbox.type = 'checkbox'
@@ -23,14 +25,14 @@ function createCheckbox() {
 
 
 
-function createDeleteButton() {
+function createDeleteButton(element) {
   var deleteButton = document.createElement("button");
   deleteButton.type = 'button';
   deleteButton.className = "delete";
   deleteButton.appendChild(document.createTextNode('x'));
 
   deleteButton.addEventListener('click', function() {
-    tasksContainer.removeChild(listItem);
+    tasksContainer.removeChild(element);
   });
 
   return deleteButton;
@@ -43,13 +45,12 @@ function submitTodo() {
   if (item == "") {
     return;
   }
-  var tasksContainer = document.getElementById('tasks')
+
   var itemText = document.createElement("span")
   itemText.appendChild(document.createTextNode(item));
-  var deleteButton = createDeleteButton()
   var checkbox = createCheckbox()
-
   var listItem = document.createElement("p")
+  var deleteButton = createDeleteButton(listItem)
   listItem.className = "list-item"
 
   listItem.appendChild(checkbox) // add checkbox to list element
