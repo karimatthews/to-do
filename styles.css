@@ -1,4 +1,5 @@
 
+
 html {
   background-color: black;
   font-family: sans-serif;
@@ -17,7 +18,7 @@ body {
 }
 
 .background-image {
-  background-color: black;
+  background-color: white;
   background-size: cover;
   background-image: url("cordelia.jpg");
    background-repeat: no-repeat;
@@ -28,34 +29,85 @@ body {
    /*min-width: 100vw;*/
    z-index: -1;
    background-position: 0% 0%;
-   filter: brightness(0.3);
+   filter: brightness(0.6);
 }
 
 #newItem {
   margin-left: 80px;
-  width: 300px;
 }
 
-button[type=button]{
-    background-color: red;
-    /*border: 2px solid white;*/
+.delete {
+    background: none;
     border: none;
-    color: black;
-    font-size: 16px;
-    margin-left: 20px;
-    height: 15px;
-    width: 15px;
-    border-radius: 3px;
-    /*content: "x";*/
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+    /*height: 15px;*/
 }
 
-input[type=checkbox] {
-  /*padding: 10px;*/
-  margin-right: 20px;
-  padding: 0px;
-  height: 15px;
-  width: 15px;
+.checkbox {
+  visibility: hidden;
+  /*z-index: 999;*/
+}
 
+
+.checkbox-container {
+  /*width: 40px;
+  height: 40px;*/
+	margin: 0px;
+	position: relative;
+  display: inline-block;
+}
+
+/**
+ * Create the box for the checkbox
+ */
+label {
+  cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: -8px;
+  left: 0;
+	background: #eee;
+	border:4px solid grey;
+  border-radius: 10px;
+}
+
+.checkbox-container label:after {
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+
+/**
+ * Create the hover event of the tick
+ */
+.checkbox-container label:hover::after {
+	opacity: 0.5;
+}
+
+/**
+ * Create the checkbox state for the tick
+ */
+.checkbox-container input[type=checkbox]:checked +  label::after {
+	opacity: 1;
+}
+
+
+span {
+  margin-left: 30px;
 }
 
 .content {
@@ -75,6 +127,7 @@ p[class=media] {
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 #topline {
