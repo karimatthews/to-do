@@ -1,6 +1,8 @@
 document.getElementById("newItem").focus();
 
+var uniqueIdCounter = 0;
 
+var tasksContainer = document.getElementById('tasks')
 
 if (!localStorage.toDoItems) {
   localStorage.toDoItems = JSON.stringify([]);
@@ -26,9 +28,7 @@ function setLocalStorage(value) {
   localStorage.toDoItems = toDoArrayString
 }
 
-var uniqueIdCounter = 0;
 
-var tasksContainer = document.getElementById('tasks')
 
 function createCheckbox() {
   var checkbox = document.createElement("input")
@@ -101,4 +101,4 @@ function checkForEnter(event) { // when we type into the textbox, submit the tod
 }
 
 
-document.getElementById("newItem").focus();
+// document.getElementById("newItem").focus();
