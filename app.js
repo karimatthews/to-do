@@ -1,15 +1,17 @@
 document.getElementById("newItem").focus();
 
+
+
+if (!localStorage.toDoItems) {
+  localStorage.toDoItems = JSON.stringify([]);
+}
+
 // grab the strigified array out of localStorage
 var toDoArrayString = localStorage.toDoItems
 // Convert the strig back to an array
 var toDoArray = JSON.parse(toDoArrayString)
 
 toDoArray.forEach(submitTodo);
-
-if (!localStorage.toDoItems) {
-  localStorage.toDoItems = JSON.stringify([]);
-}
 
 function setLocalStorage(value) {
   // grab the strigified array out of localStorage
