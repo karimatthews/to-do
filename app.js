@@ -1,5 +1,29 @@
 document.getElementById("newItem").focus();
 
+// grab the strigified array out of localStorage
+var toDoArrayString = localStorage.toDoItems
+// Convert the strig back to an array
+var toDoArray = JSON.parse(toDoArrayString)
+
+toDoArray.forEach(submitTodo);
+
+if (!localStorage.toDoItems) {
+  localStorage.toDoItems = JSON.stringify([]);
+}
+
+function setLocalStorage(value) {
+  // grab the strigified array out of localStorage
+  var toDoArrayString = localStorage.toDoItems
+  // Convert the strig back to an array
+  var toDoArray = JSON.parse(toDoArrayString)
+  //Add value to the end of the array
+  toDoArray.push(value)
+  //Turn the array back into a string
+  toDoArrayString = JSON.stringify(toDoArray)
+  //Put the string in local storage
+  localStorage.toDoItems = toDoArrayString
+}
+
 var uniqueIdCounter = 0;
 
 var tasksContainer = document.getElementById('tasks')
@@ -40,8 +64,11 @@ function createDeleteButton(element) {
 
 
 
-function submitTodo() {
-  var item = document.getElementById('newItem').value
+function submitTodo(todotext) {
+  var item = todotext
+  if (!todotext) {
+    var item = document.getElementById('newItem').value
+  }
   if (item == "") {
     return;
   }
@@ -50,6 +77,9 @@ function submitTodo() {
   itemText.appendChild(document.createTextNode(item));
   var checkbox = createCheckbox()
   var listItem = document.createElement("p")
+  // Store
+
+
   var deleteButton = createDeleteButton(listItem)
   listItem.className = "list-item"
 
@@ -59,6 +89,7 @@ function submitTodo() {
   tasksContainer.appendChild(listItem)   // Adds new item to the list
 
   document.getElementById('newItem').value = ""   // Clears the text input box
+setLocalStorage(item)
 }
 
 function checkForEnter(event) { // when we type into the textbox, submit the todo if we're hitting Enter
@@ -66,5 +97,6 @@ function checkForEnter(event) { // when we type into the textbox, submit the tod
     submitTodo()
   }
 }
+
 
 document.getElementById("newItem").focus();
