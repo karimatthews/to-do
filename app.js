@@ -51,14 +51,30 @@ function createCheckbox() {
 
 
 
-function createDeleteButton(element) {
+function createDeleteButton(element, text) {
   var deleteButton = document.createElement("button");
   deleteButton.type = 'button';
   deleteButton.className = "delete";
   deleteButton.appendChild(document.createTextNode('x'));
 
+
+
   deleteButton.addEventListener('click', function() {
     tasksContainer.removeChild(element);
+
+    // grab the strigified array out of localStorage
+    var toDoArrayString = localStorage.toDoItems
+    // Convert the strig back to an array
+    var toDoArray = JSON.parse(toDoArrayString)
+
+    var index = toDoArray.indexOf(text);
+    if (index > -1) {
+      toDoArray.splice(index, 1);
+    }
+    //Turn the array back into a string
+    toDoArrayString = JSON.stringify(toDoArray)
+    //Put the string in local storage
+    localStorage.toDoItems = toDoArrayString
   });
 
   return deleteButton;
@@ -66,11 +82,14 @@ function createDeleteButton(element) {
 
 
 
-function submitTodo(todotext) {
-  var item = todotext
-  if (!todotext) {
+function submitTodo(toDoFromLocalStorage) {
+  if (toDoFromLocalStorage) {
+    var item = toDoFromLocalStorage
+  } else {
     var item = document.getElementById('newItem').value
+    setLocalStorage(item)
   }
+
   if (item == "") {
     return;
   }
@@ -82,7 +101,7 @@ function submitTodo(todotext) {
   // Store
 
 
-  var deleteButton = createDeleteButton(listItem)
+  var deleteButton = createDeleteButton(listItem, item)
   listItem.className = "list-item"
 
   listItem.appendChild(checkbox) // add checkbox to list element
@@ -91,7 +110,6 @@ function submitTodo(todotext) {
   tasksContainer.appendChild(listItem)   // Adds new item to the list
 
   document.getElementById('newItem').value = ""   // Clears the text input box
-setLocalStorage(item)
 }
 
 function checkForEnter(event) { // when we type into the textbox, submit the todo if we're hitting Enter
