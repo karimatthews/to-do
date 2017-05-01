@@ -20,7 +20,7 @@ var toDoArrayString = localStorage.toDoItems
 // Convert the string back to an array
 var toDoArray = JSON.parse(toDoArrayString)
 
-toDoArray.forEach(submitTodo);
+toDoArray.forEach(submitToDo);
 
 function createToDoInLocalStorage(value) {
   // grab the strigified array out of localStorage
@@ -58,7 +58,8 @@ function createCheckbox(toDoFromLocalStorage) {
   checkboxContainer.className = 'checkbox-container'
 
   checkbox.addEventListener('click', function() {
-    // Grab the strigified array of objects object out of local storage e.g. "[{checked: t/f, text: "string"}, {checked: t/f, text: "string"}, ...]"
+    // Grab the strigified array of objects object out of local storage
+    //  e.g. "[{checked: t/f, text: "string"}, {checked: t/f, text: "string"}, ...]"
     var toDoArrayString = localStorage.toDoItems
     // Convert the string back to an array
     var toDoArray = JSON.parse(toDoArrayString)
@@ -112,13 +113,36 @@ function createDeleteButton(element, toDoFromLocalStorage) {
   return deleteButton;
 }
 
+function hasRepeat(text) {
+  // grab the strigified array out of localStorage
+  var toDoArrayString = localStorage.toDoItems
+  // Convert the string back to an array
+  var toDoArray = JSON.parse(toDoArrayString)
+//defines a function that checks if our new todo item exists in an object
+  function matchText(element) {
+    return element.text == text;
+  }
+  //Runs matchText on each object of the array and returns a list of true items
+  var matches = toDoArray.filter(matchText)
+  //If there are any matches in local storage, throw the alert and exit out of submitToDO
+  return matches.length != 0
+
+}
 
 
-function submitTodo(toDoFromLocalStorage) {
+
+
+
+function submitToDo(toDoFromLocalStorage) {
   if (toDoFromLocalStorage) {
     var item = toDoFromLocalStorage.text
   } else {
     var item = document.getElementById('newItem').value
+    if (hasRepeat(item)) {
+      alert("Oops! You've already got that on your list.")
+      document.getElementById('newItem').value = ""   // Clears the text input box
+      return
+    }
     var toDoFromLocalStorage = createToDoInLocalStorage(item)
   }
 
@@ -146,7 +170,7 @@ function submitTodo(toDoFromLocalStorage) {
 
 function checkForEnter(event) { // when we type into the textbox, submit the todo if we're hitting Enter
   if (event.keyCode == 13) {
-    submitTodo()
+    submitToDo()
   }
 }
 
